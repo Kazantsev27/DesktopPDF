@@ -25,14 +25,14 @@ public class ListenerCreate implements ActionListener {
 	
 	@Override 
 	public void actionPerformed(ActionEvent arg0) { 
-		Document document = new Document(); //создание класса Document
+		Document document = new Document(); //создание объекта Document
 		try {
 			PdfWriter.getInstance(document, new FileOutputStream("Check.pdf"));
 		} catch (FileNotFoundException | DocumentException e) {
 			e.printStackTrace();
 		}
 			
-		document.open(); 
+		document.open(); //открытие для возможности записи
 		
 		BaseFont times = null;
 		try {
@@ -41,11 +41,11 @@ public class ListenerCreate implements ActionListener {
 			e.printStackTrace();
 		}
 		
-		String string_pdf = "Добрый день замечательные группы ПИ второго курса кафедры АСУ УГАТУ! Здесь будет пример вывода текста!";
+		String string_pdf = "Добрый день!";
 		Paragraph paragraph = new Paragraph();
 	    paragraph.add(new Paragraph(string_pdf, new Font(times,14)));
 	    
-	    String string_pdf2 = "Дополнительный текст, который выводится в PDF. При этом нужно понимать, что можно указывать значения переменных, которые будут выводится в файл PDF.";
+	    String string_pdf2 = "Дополнительный текст, который выводится в PDF. При этом нужно понимать, что можно указывать значения, которые будут выводится в файл PDF.";
 	    paragraph.add(new Paragraph(string_pdf2, new Font(times,14)));
 	
 	    try {
@@ -105,22 +105,22 @@ public class ListenerCreate implements ActionListener {
 			e.printStackTrace();
 		}
 		
-		document.close(); //закрытие и сохранение документа PDF
+		document.close(); //закрытие и сохранение документа
 		
 	}
 
 	private void addRows(PdfPTable table) {
 		
-		//заполнение таблицы вводимыми значения в текстовые поля на главной форме
+		//заполнение таблицы вводимыми значениями в текстовые поля на главной форме
 		String cell1 = "null";
 		String cell2 = "null";
 		String cell3 = "null";
 		String cell4 = "null";
 		
-		cell1 = test_pdf.TextNumber.getText();
-		cell2 = test_pdf.TextGroup.getText();
-		cell3 = test_pdf.TextFIO.getText();
-		cell4 = test_pdf.TextPoints.getText();
+		cell1 = Create_pdf_with_gui.TextNumber.getText();
+		cell2 = Create_pdf_with_gui.TextGroup.getText();
+		cell3 = Create_pdf_with_gui.TextFIO.getText();
+		cell4 = Create_pdf_with_gui.TextPoints.getText();
 		
 		table.addCell(cell1);
 	    table.addCell(cell2);

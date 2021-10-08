@@ -1,21 +1,23 @@
 package pdf;
 
-import java.awt.event.ActionListener; //библиотека для события слушателя
-import javax.swing.*; // Библиотека для GUI (построена на основе awt)
-import pdf.ListenerButton;
+import java.awt.event.ActionListener;
 
-//для сборки проекта с зависимостями используем Maven - "package shade:shade"
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
-public class test_pdf {
+public class Create_pdf_with_gui {
 
 	public static JTextField TextNumber;
 	public static JTextField TextGroup;
 	public static JTextField TextFIO;
 	public static JTextField TextPoints;
-	protected static  test_pdf kurs_pi;
+	
 	
 	//замените магические числа везде!!! В примере числа используются для упрощения. В работе от них нужно избавиться.
-	public test_pdf() {
+	public Create_pdf_with_gui() {
 	JFrame main_GUI = new JFrame("PDF");	// создание графического окна
 	main_GUI.setTitle ("PDF create and edit");
 	main_GUI.setBounds(500,400,400,300);
@@ -25,7 +27,7 @@ public class test_pdf {
 	main_panel.setLayout(null);
 	main_GUI.add(main_panel);
 		
-	JLabel laba_info = new JLabel("Test create PDF-file"); // Отображение текста или изображения
+	JLabel laba_info = new JLabel("Create PDF-file like a Desktop app"); // Отображение текста или изображения
 	laba_info.setBounds(120,0,150,30);
 	main_panel.add(laba_info);
 	
@@ -53,7 +55,7 @@ public class test_pdf {
 	TextFIO = new JTextField(15);
 	TextPoints = new JTextField(15);
 	
-	//форматирование текстовых волей - установка атрибутов положения и размера
+	//форматирование текстовых полей - установка атрибутов положения и размера
 	TextNumber.setBounds(130,30,150,30);
 	TextGroup.setBounds(130,70,150,30);
 	TextFIO.setBounds(130,110,150,30);
@@ -83,10 +85,4 @@ public class test_pdf {
 		
 	
 	}
-	
-	public static void main(String[] args) { 
-		kurs_pi= new test_pdf();
-		
-	}
-	
 }
