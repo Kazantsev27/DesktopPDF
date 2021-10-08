@@ -37,7 +37,7 @@
         <configuration>
           <transformers>
              <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                <mainClass>pdf.test_pdf</mainClass>
+                <mainClass>pdf.Main</mainClass>
              </transformer>
           </transformers>
         </configuration>
