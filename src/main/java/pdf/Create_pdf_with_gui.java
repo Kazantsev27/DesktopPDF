@@ -28,7 +28,7 @@ public class Create_pdf_with_gui {
 	main_GUI.add(main_panel);
 		
 	JLabel laba_info = new JLabel("Create PDF-file like a Desktop app"); // Отображение текста или изображения
-	laba_info.setBounds(120,0,150,30);
+	laba_info.setBounds(120,0,200,30);
 	main_panel.add(laba_info);
 	
 	//создание надписей около текстовых полей
@@ -68,14 +68,14 @@ public class Create_pdf_with_gui {
 	main_panel.add(TextPoints);
 		
 	
-	JButton button_exit = new JButton("Exit"); // добавляем кнопку
+	JButton button_exit = new JButton("Выход"); // добавляем кнопку
 	button_exit.setBounds(270,200,100,40);
 	ActionListener actionListener = new ListenerButton(); //создаем слушатель
 	button_exit.addActionListener(actionListener); // добавляем слушатель к кнопке
 	main_panel.add(button_exit);
 	
-	JButton button_create = new JButton("Create PDF"); // добавляем кнопку
-	button_create.setBounds(20,200,100,40);
+	JButton button_create = new JButton("Создать PDF"); // добавляем кнопку
+	button_create.setBounds(20,200,150,40);
 	ActionListener actionCreate = new ListenerCreate(); //создаем слушатель для кнопки PDF
 	button_create.addActionListener(actionCreate); // добавляем слушатель к кнопке
 	main_panel.add(button_create);
