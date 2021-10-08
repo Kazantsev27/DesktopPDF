@@ -21,20 +21,25 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+
+
+//класс реализующий слушатель (ожидания нажатия кнопки)
 public class ListenerCreate implements ActionListener {
 	
-	@Override 
-	public void actionPerformed(ActionEvent arg0) { 
+	BaseFont times = null;
+	
+	@Override // ключевое слово, которое позволяет в дочернем классе заново создать реализацию метода родительского класса
+	public void actionPerformed(ActionEvent arg0) { //реализация метода для создания, наполнения и сохранения PDF файла
 		Document document = new Document(); //создание объекта Document
 		try {
-			PdfWriter.getInstance(document, new FileOutputStream("Check.pdf"));
-		} catch (FileNotFoundException | DocumentException e) {
+			PdfWriter.getInstance(document, new FileOutputStream("Check.pdf")); //выходной поток для создания PDF, а внутри создается поток записи с конкретным именем
+		} catch (FileNotFoundException | DocumentException e) { //Исключение когда файл не найден
 			e.printStackTrace();
 		}
 			
 		document.open(); //открытие для возможности записи
 		
-		BaseFont times = null;
+		
 		try {
 			times = BaseFont.createFont("/fonts/times.ttf", "cp1251", BaseFont.EMBEDDED);
 		} catch (DocumentException | IOException e) {
@@ -42,7 +47,7 @@ public class ListenerCreate implements ActionListener {
 		}
 		
 		String string_pdf = "Добрый день!";
-		Paragraph paragraph = new Paragraph();
+		Paragraph paragraph = new Paragraph(); //создание объекта "параграф" для возможности записи данных в файл
 	    paragraph.add(new Paragraph(string_pdf, new Font(times,14)));
 	    
 	    String string_pdf2 = "Дополнительный текст, который выводится в PDF. При этом нужно понимать, что можно указывать значения, которые будут выводится в файл PDF.";
@@ -96,8 +101,8 @@ public class ListenerCreate implements ActionListener {
 		 
 	    //добавление таблицы
 		 PdfPTable table = new PdfPTable(4); //создание таблицы с 4 столбцами
-		 addHeader(table);
-		 addRows(table);
+		 addHeader(table); //добавление заголовка (шапки таблицы)
+		 addRows(table); // добавление строк
 		 
 		 try {
 			document.add(table);
@@ -130,14 +135,21 @@ public class ListenerCreate implements ActionListener {
 	    //выше должен быть текст на русском языке, как его вывести можно посмотреть в справке.
 	}
 
-	private void addHeader(PdfPTable table) {
-		Stream.of("Number", "Group", "FIO", "Points")
-	      .forEach(columnTitle -> {
-	        PdfPCell header = new PdfPCell();
+	private void addHeader(PdfPTable table) { //метод для работы с шапкой таблицы
+		Stream.of("Номер", "Группа", "ФИО", "Оценка") //поток с названиями для шапки
+	      .forEach(columnTitle -> { //в цикле для всех данных в потоке выше создаем ячейки, заносим названия и устанавливаем свойства ячейки 
+	        PdfPCell header = new PdfPCell(); //реализация ячейки в таблице
 	        header.setBackgroundColor(BaseColor.LIGHT_GRAY);
 	        header.setBorderWidth(2);
-	        header.setPhrase(new Phrase(columnTitle));
-	        table.addCell(header);
+	        //ниже дублирование кода (это можно устранить)
+	        try {
+				times = BaseFont.createFont("/fonts/times.ttf", "cp1251", BaseFont.EMBEDDED);
+			} catch (DocumentException | IOException e) {
+				e.printStackTrace();
+			}
+			//установка значения и шрифта для выводимого текста в ячейки	        
+	        header.setPhrase(new Phrase(columnTitle,new Font(times,14)));
+	        table.addCell(header); 
 	    });
 		
 	}

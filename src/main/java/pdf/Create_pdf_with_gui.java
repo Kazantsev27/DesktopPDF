@@ -32,10 +32,10 @@ public class Create_pdf_with_gui {
 	main_panel.add(laba_info);
 	
 	//создание надписей около текстовых полей
-	JLabel labelNumber = new JLabel("Number");
-	JLabel labelGroup = new JLabel("Group");
-	JLabel labelFIO = new JLabel("FIO");
-	JLabel labelPoints = new JLabel("Points");
+	JLabel labelNumber = new JLabel("Номер");
+	JLabel labelGroup = new JLabel("Группа");
+	JLabel labelFIO = new JLabel("ФИО");
+	JLabel labelPoints = new JLabel("Оценка");
 	
 	//добавление label на панель
 	main_panel.add(labelNumber);
