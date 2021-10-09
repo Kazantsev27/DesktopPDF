@@ -8,14 +8,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Create_pdf_with_gui {
+public class Create_pdf_with_gui extends JFrame {
 
 	public static JTextField TextNumber;
 	public static JTextField TextGroup;
 	public static JTextField TextFIO;
 	public static JTextField TextPoints;
 	
-	
+		
 	//замените магические числа везде!!! В примере числа используются для упрощения. В работе от них нужно избавиться.
 	public Create_pdf_with_gui() {
 	JFrame main_GUI = new JFrame("PDF");	// создание графического окна
@@ -76,7 +76,7 @@ public class Create_pdf_with_gui {
 	
 	JButton button_create = new JButton("Создать PDF"); // добавляем кнопку
 	button_create.setBounds(20,200,150,40);
-	ActionListener actionCreate = new ListenerCreate(); //создаем слушатель для кнопки PDF
+	ActionListener actionCreate = new ListenerPDF(); //создаем слушатель для кнопки PDF
 	button_create.addActionListener(actionCreate); // добавляем слушатель к кнопке
 	main_panel.add(button_create);
 	

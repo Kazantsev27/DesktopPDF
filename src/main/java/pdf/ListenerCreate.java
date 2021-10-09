@@ -1,5 +1,13 @@
-package pdf;
+/**
+ * Устаревший класс для создания PDF документа в рамках работы программы.
+ * @author Kazantsev
+ * @version 1.2
+ * @return void
+ * 
+ * Далее в данном классе используются однострочные комментарии, которые не будут дополняться.
+ */
 
+package pdf;
 import java.awt.event.*;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -21,12 +29,11 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-
-
 //класс реализующий слушатель (ожидания нажатия кнопки)
+//Класс устарел, но его можно использовать (в программе он не используется)
 public class ListenerCreate implements ActionListener {
 	
-	BaseFont times = null;
+	BaseFont times = null; //Объект шрифта
 	
 	@Override // ключевое слово, которое позволяет в дочернем классе заново создать реализацию метода родительского класса
 	public void actionPerformed(ActionEvent arg0) { //реализация метода для создания, наполнения и сохранения PDF файла
@@ -38,8 +45,7 @@ public class ListenerCreate implements ActionListener {
 		}
 			
 		document.open(); //открытие для возможности записи
-		
-		
+				
 		try {
 			times = BaseFont.createFont("/fonts/times.ttf", "cp1251", BaseFont.EMBEDDED);
 		} catch (DocumentException | IOException e) {
@@ -58,8 +64,7 @@ public class ListenerCreate implements ActionListener {
 		} catch (DocumentException e1) {
 			e1.printStackTrace();
 		}
-	    	
-	    
+	    	    
 	    //добавление изображения в pdf
 	    URL url = getClass().getResource("/picture/ugatu.png");
 	    Image img = null;
@@ -85,8 +90,7 @@ public class ListenerCreate implements ActionListener {
 			} catch (DocumentException e) {
 				e.printStackTrace();
 			}
-	    
-	    
+	    	    
 		 //организация перехода на следующую строку
 		 paragraph.clear();
 		 String string_pdf3 = " ";
@@ -97,8 +101,7 @@ public class ListenerCreate implements ActionListener {
 			} catch (DocumentException e1) {
 				e1.printStackTrace();
 			}
-		 
-		 
+		 		 
 	    //добавление таблицы
 		 PdfPTable table = new PdfPTable(4); //создание таблицы с 4 столбцами
 		 addHeader(table); //добавление заголовка (шапки таблицы)
