@@ -75,5 +75,13 @@
     <version>5.5.13.2</version>
 </dependency>
   	 	
+ <dependency>
+    <groupId>create</groupId>
+    <artifactId>create</artifactId>
+    <version>1.0</version>
+    <scope>system</scope>
+    <systemPath>${project.basedir}/lib/CreatePDF.jar</systemPath>
+</dependency>
+  	 	
   </dependencies>
 </project>
