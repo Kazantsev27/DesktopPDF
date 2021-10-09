@@ -9,7 +9,7 @@
   <url>http://maven.apache.org</url>
   
   <build>
-   <finalName>CreatePDF</finalName>
+   <finalName>PDFGenerator</finalName>
   <defaultGoal>package</defaultGoal>
 <pluginManagement>
             <plugins>
@@ -52,7 +52,7 @@
         <configuration>
           <archive>
             <manifest>
-              <mainClass>pdf.test_pdf</mainClass>
+              <mainClass>pdf.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
