@@ -1,5 +1,13 @@
-package pdf;
+/** Класс реализующий графический интерфейс.
+ * @author Kazantsev
+ * @version 1.5
+ * 
+ * Класс является наследником JFrame, но методы не переопределяются.
+ * Класс имеет один конструктор по умолчанию.
+ * Класс имеет один метод без параметров.
+ */
 
+package pdf;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -15,8 +23,6 @@ public class Create_pdf_with_gui extends JFrame {
 	public static JTextField TextFIO;
 	public static JTextField TextPoints;
 	
-		
-	//замените магические числа везде!!! В примере числа используются для упрощения. В работе от них нужно избавиться.
 	public Create_pdf_with_gui() {
 	JFrame main_GUI = new JFrame("PDF");	// создание графического окна
 	main_GUI.setTitle ("PDF create and edit");
@@ -27,7 +33,7 @@ public class Create_pdf_with_gui extends JFrame {
 	main_panel.setLayout(null);
 	main_GUI.add(main_panel);
 		
-	JLabel laba_info = new JLabel("Create PDF-file like a Desktop app"); // Отображение текста или изображения
+	JLabel laba_info = new JLabel("Создания PDF файла для десктоп приложения"); //создание объект "Метка" с заданным значением
 	laba_info.setBounds(120,0,200,30);
 	main_panel.add(laba_info);
 	
