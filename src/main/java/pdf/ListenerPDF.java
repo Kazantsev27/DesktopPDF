@@ -14,7 +14,12 @@ public class ListenerPDF implements ActionListener {
 		String f2=Create_pdf_with_gui.TextGroup.getText();
 		String f3=Create_pdf_with_gui.TextFIO.getText();
 		String f4=Create_pdf_with_gui.TextPoints.getText();
-		new CreatePDF(f1,f2,f3,f4);
+		String[] Hat = new String[4];
+		Hat[0]="Номер";
+		Hat[1]="Группа";
+		Hat[2]="Фамилия И.О.";
+		Hat[3]="Оценка";
+		new CreatePDF(f1,f2,f3,f4,Hat);
 		
 		//вывод окна с сообщением о создании файла
 		JOptionPane.showMessageDialog(null, "Файл check.pdf создан","Create PDF", JOptionPane.PLAIN_MESSAGE);
