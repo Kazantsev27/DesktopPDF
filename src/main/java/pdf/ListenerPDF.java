@@ -2,7 +2,14 @@ package pdf;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.net.URL;
+
 import javax.swing.JOptionPane;
+
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.BaseFont;
+
 import create.CreatePDF;
 
 public class ListenerPDF implements ActionListener {
@@ -19,7 +26,23 @@ public class ListenerPDF implements ActionListener {
 		Hat[1]="Группа";
 		Hat[2]="Фамилия И.О.";
 		Hat[3]="Оценка";
-		new CreatePDF(f1,f2,f3,f4,Hat);
+		String Texthat = "Создание PDF файла.";
+		String Textgeneral = "Здесь будет текст который необходимо выводить. Можно добавить достаточного большое количество текста";
+		URL Imagelink=getClass().getResource("/picture/ugatu.png");
+		String Namefile = "TestPDF.pdf";
+		BaseFont times = null;
+		try {
+			times = BaseFont.createFont("/fonts/times.ttf", "cp1251", BaseFont.EMBEDDED);
+		} catch (DocumentException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		//new CreatePDF(f1,f2,f3,f4,Hat,Texthat,Textgeneral,Imagelink,Namefile,times);
+		new CreatePDF(f1,f2,f3,f4,Hat,Texthat,Textgeneral,Imagelink,Namefile,times);
 		
 		//вывод окна с сообщением о создании файла
 		JOptionPane.showMessageDialog(null, "Файл check.pdf создан","Create PDF", JOptionPane.PLAIN_MESSAGE);

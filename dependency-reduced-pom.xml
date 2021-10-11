@@ -34,28 +34,6 @@
           </configuration>
         </plugin>
         <plugin>
-          <artifactId>maven-resources-plugin</artifactId>
-          <version>3.2.0</version>
-          <executions>
-            <execution>
-              <id>copy-resources</id>
-              <phase>package</phase>
-              <goals>
-                <goal>copy-resources</goal>
-              </goals>
-              <configuration>
-                <outputDirectory>${basedir}/App/resources</outputDirectory>
-                <propertiesEncoding>ISO-8859-1</propertiesEncoding>
-                <resources>
-                  <resource>
-                    <directory>src/main/resources</directory>
-                  </resource>
-                </resources>
-              </configuration>
-            </execution>
-          </executions>
-        </plugin>
-        <plugin>
           <artifactId>maven-shade-plugin</artifactId>
           <version>3.2.0</version>
           <executions>

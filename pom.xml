@@ -18,9 +18,9 @@
 </dependency>
 
 <dependency>
-    	<groupId>pdf</groupId>
-    	<artifactId>pdf</artifactId>
-    	<version>1.6</version>
+    	<groupId>CreatePDF</groupId>
+    	<artifactId>PDFv.1.0</artifactId>
+    	<version>1.8</version>
     	<type>jar</type>
 </dependency>
 	
