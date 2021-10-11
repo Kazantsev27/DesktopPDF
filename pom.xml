@@ -2,11 +2,29 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>pdf</groupId>
   <artifactId>pdf</artifactId>
-  <version>1.6</version>
+  <version>1.7</version>
   <packaging>jar</packaging>
   <name>DesktopPDF</name>
   <description>pdf_create for desktop app</description>
   <url>http://maven.apache.org</url>
+  
+<dependencies>
+
+<dependency>
+    	<groupId>com.itextpdf</groupId>
+    	<artifactId>itextpdf</artifactId>
+    	<version>5.5.13.2</version>
+    	<type>jar</type>
+</dependency>
+
+<dependency>
+    	<groupId>pdf</groupId>
+    	<artifactId>pdf</artifactId>
+    	<version>1.6</version>
+    	<type>jar</type>
+</dependency>
+	
+</dependencies>
   
   <build>
    <finalName>PDFGenerator</finalName>
@@ -14,102 +32,58 @@
 
 <pluginManagement>
 <plugins>
-                <plugin>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.6.2</version>
-                    <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                    </configuration>
-</plugin>
-                
+
 <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-dependency-plugin</artifactId>
-    <version>3.2.0</version>
-    <executions>
-        <execution>
-        <id>copy</id>
-            <phase>package</phase>
-            <goals>
-                <goal>copy</goal>
-            </goals>
-            <configuration>
-                <artifactItems>
-                    <artifactItem>
-                        <groupId>com.itextpdf</groupId>
-                        <artifactId>itextpdf</artifactId>
-                        <version>5.5.13.2</version>
-                        <outputDirectory>${project.build.directory}/lib/</outputDirectory>>
-                        <destFileName>itextpdf.jar</destFileName>
-                    </artifactItem>
-                </artifactItems>
-              
-            </configuration>
-        </execution>
-    </executions>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+             <configuration>
+                   <source>1.8</source>
+                   <target>1.8</target>
+             </configuration>
 </plugin>
-                
-               <plugin>
-<groupId>org.apache.maven.plugins</groupId>
-<artifactId>maven-shade-plugin</artifactId>
-<executions>
-<execution>
-<goals>
-<goal>shade</goal>
-</goals>
-<configuration>
-<shadedArtifactAttached>true</shadedArtifactAttached>
-<transformers>
- <transformer implementation=
- "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-  <mainClass>pdf.Main</mainClass>
-   </transformer>
-            </transformers>
-        </configuration>
-        </execution>
-    </executions>
-</plugin>
-                
+
 <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-jar-plugin</artifactId>
-        <version>3.1.1</version>
+        <version>3.2.0</version>
         <configuration>
+        <goal>jar</goal>
+        <outputDirectory>${basedir}/App</outputDirectory>
           <archive>
             <manifest>
               <mainClass>pdf.Main</mainClass>
             </manifest>
           </archive>
         </configuration>
-</plugin>
-            
+</plugin>  
+          
+<plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-shade-plugin</artifactId>
+      <version>3.2.0</version>
+      <executions>
+         <!-- для сборки используйте в goal: "package shade:shade" -->
+         <!-- для добавления CreatePDF.jar в локальный репозиторий используйте: 
+         "mvn install:install-file -Dfile=path/CreatePDF.jar -DpomFile=path-to-pom" (path - заменить на путь к файлу)-->
+        <execution>
+        <phase>package</phase>
+        <goals>
+            <goal>shade</goal>
+        </goals>
+        <configuration>
+          <transformers>
+             <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                <mainClass>pdf.Main</mainClass>
+             </transformer>
+          </transformers>
+        </configuration>
+          </execution>
+      </executions>
+    </plugin> 
 
-                
-            </plugins>
-        </pluginManagement>
+</plugins>
+</pluginManagement>
 </build>
     
-	<dependencies>
-<dependency>
-  		<groupId>junit</groupId>
-  		<artifactId>junit</artifactId>
-  		<version>4.12</version>
-</dependency>
-  	
-  	<dependency>
-    <groupId>com.itextpdf</groupId>
-    <artifactId>itextpdf</artifactId>
-    <version>5.5.13.2</version>
-</dependency>
-  	 	
- <dependency>
-    <groupId>create</groupId>
-    <artifactId>create</artifactId>
-    <version>1.0</version>
-    <scope>system</scope>
-    <systemPath>${project.basedir}/lib/CreatePDF.jar</systemPath>
-</dependency>
-  	 	
-  </dependencies>
+
 </project>
