@@ -41,12 +41,10 @@ public class ListenerPDF implements ActionListener {
 			e2.printStackTrace();
 		}
 		
-		//new CreatePDF(f1,f2,f3,f4,Hat,Texthat,Textgeneral,Imagelink,Namefile,times);
 		new CreatePDF(f1,f2,f3,f4,Hat,Texthat,Textgeneral,Imagelink,Namefile,times);
 		
 		//вывод окна с сообщением о создании файла
-		JOptionPane.showMessageDialog(null, "Файл TestPDF.pdf создан","Create PDF", JOptionPane.PLAIN_MESSAGE);
-		
+		JOptionPane.showMessageDialog(null, "Файл" + Namefile + "создан","Create PDF", JOptionPane.PLAIN_MESSAGE);
 	}
 
 	

@@ -72,7 +72,6 @@ public class Create_pdf_with_gui extends JFrame {
 	main_panel.add(TextGroup);
 	main_panel.add(TextFIO);
 	main_panel.add(TextPoints);
-		
 	
 	JButton button_exit = new JButton("Выход"); // добавляем кнопку
 	button_exit.setBounds(270,200,100,40);
