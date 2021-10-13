@@ -88,6 +88,5 @@ public class Create_pdf_with_gui extends JFrame {
 	main_GUI.setVisible(true);
 	main_GUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // закрытие окна JFrame и процесса Java
 		
-	
 	}
 }
