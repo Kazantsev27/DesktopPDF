@@ -16,7 +16,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class Create_pdf_with_gui extends JFrame {
+public class Create_pdf_with_gui{
 
 	public static JTextField TextNumber;
 	public static JTextField TextGroup;
@@ -25,7 +25,7 @@ public class Create_pdf_with_gui extends JFrame {
 	
 	public Create_pdf_with_gui() {
 	JFrame main_GUI = new JFrame("PDF");	// создание графического окна
-	main_GUI.setTitle ("PDF create and edit");
+	main_GUI.setTitle ("Создание типового PDF-файла");
 	main_GUI.setBounds(500,400,400,300);
 	main_GUI.setResizable(false); // фиксированный размер окна
 	
@@ -34,7 +34,7 @@ public class Create_pdf_with_gui extends JFrame {
 	main_GUI.add(main_panel);
 		
 	JLabel laba_info = new JLabel("Создания PDF файла для десктоп приложения"); //создание объект "Метка" с заданным значением
-	laba_info.setBounds(120,0,200,30);
+	laba_info.setBounds(60,0,300,30);
 	main_panel.add(laba_info);
 	
 	//создание надписей около текстовых полей
@@ -89,4 +89,5 @@ public class Create_pdf_with_gui extends JFrame {
 	main_GUI.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // закрытие окна JFrame и процесса Java
 		
 	}
+
 }
