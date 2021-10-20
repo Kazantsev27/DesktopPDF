@@ -17,10 +17,10 @@ public class ListenerPDF implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String f1=Create_pdf_with_gui.TextNumber.getText();
-		String f2=Create_pdf_with_gui.TextGroup.getText();
-		String f3=Create_pdf_with_gui.TextFIO.getText();
-		String f4=Create_pdf_with_gui.TextPoints.getText();
+		String TextNumber=Create_pdf_with_gui.TextNumber.getText();
+		String TextGroup=Create_pdf_with_gui.TextGroup.getText();
+		String TextFIO=Create_pdf_with_gui.TextFIO.getText();
+		String TextPoints=Create_pdf_with_gui.TextPoints.getText();
 		String[] Hat = new String[4];
 		Hat[0]="Номер";
 		Hat[1]="Группа";
@@ -41,7 +41,7 @@ public class ListenerPDF implements ActionListener {
 			e2.printStackTrace();
 		}
 		
-		new CreatePDF(f1,f2,f3,f4,Hat,Texthat,Textgeneral,Imagelink,Namefile,times);
+		new CreatePDF(TextNumber,TextGroup,TextFIO,TextPoints,Hat,Texthat,Textgeneral,Imagelink,Namefile,times);
 		
 		//вывод окна с сообщением о создании файла
 		JOptionPane.showMessageDialog(null, "Файл" + Namefile + "создан","Create PDF", JOptionPane.PLAIN_MESSAGE);
