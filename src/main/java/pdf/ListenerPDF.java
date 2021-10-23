@@ -34,10 +34,8 @@ public class ListenerPDF implements ActionListener {
 		try {
 			times = BaseFont.createFont("/fonts/times.ttf", "cp1251", BaseFont.EMBEDDED);
 		} catch (DocumentException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		} catch (IOException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
@@ -46,6 +44,4 @@ public class ListenerPDF implements ActionListener {
 		//вывод окна с сообщением о создании файла
 		JOptionPane.showMessageDialog(null, "Файл" + Namefile + "создан","Create PDF", JOptionPane.PLAIN_MESSAGE);
 	}
-
-	
 }
