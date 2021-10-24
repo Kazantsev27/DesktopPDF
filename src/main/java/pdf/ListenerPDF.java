@@ -16,7 +16,6 @@ public class ListenerPDF implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		String TextNumber=Create_pdf_with_gui.TextNumber.getText();
 		String TextGroup=Create_pdf_with_gui.TextGroup.getText();
 		String TextFIO=Create_pdf_with_gui.TextFIO.getText();

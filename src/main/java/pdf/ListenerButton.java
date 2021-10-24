@@ -6,10 +6,8 @@ import java.awt.event.*;
 public class ListenerButton implements ActionListener {
 
 	@Override // ключевое слово, которое позволяет в дочернем классе заново создать реализацию метода родительского класса
-	public void actionPerformed(ActionEvent arg0) {
-					
+	public void actionPerformed(ActionEvent arg0) {		
 		System.exit(1);
-		
 	}
 }
 
