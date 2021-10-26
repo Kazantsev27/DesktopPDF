@@ -21,6 +21,7 @@ public class ListenerPDF implements ActionListener {
 		String TextFIO=Create_pdf_with_gui.TextFIO.getText();
 		String TextPoints=Create_pdf_with_gui.TextPoints.getText();
 		String[] Hat = new String[4];
+		//можно это задать и по другому
 		Hat[0]="Номер";
 		Hat[1]="Группа";
 		Hat[2]="Фамилия И.О.";
