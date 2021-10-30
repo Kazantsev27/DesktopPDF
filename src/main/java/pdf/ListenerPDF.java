@@ -29,7 +29,7 @@ public class ListenerPDF implements ActionListener {
 		String Texthat = "Создание PDF файла.";
 		String Textgeneral = "Здесь будет текст который необходимо выводить. Можно добавить достаточного большое количество текста";
 		URL Imagelink=getClass().getResource("/picture/ugatu.png");
-		String Namefile = "TestPDF.pdf";
+		String Namefile = "Document.pdf";
 		BaseFont times = null;
 		try {
 			times = BaseFont.createFont("/fonts/times.ttf", "cp1251", BaseFont.EMBEDDED);
