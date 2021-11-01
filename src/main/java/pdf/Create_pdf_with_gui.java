@@ -22,6 +22,10 @@ public class Create_pdf_with_gui{
 	public static JTextField TextFIO;
 	public static JTextField TextPoints;
 	
+	public Create_pdf_with_gui(String name, Integer fix) { 
+	//если требуется то нужно реализовать
+	}
+	
 	public Create_pdf_with_gui() {
 	JFrame main_GUI = new JFrame("PDF");	// создание графического окна
 	main_GUI.setTitle ("Создание типового PDF-файла");
