@@ -17,20 +17,22 @@ public class ListenerPDF implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		String[] NameCell = new String[5];
-		NameCell[0]=Create_pdf_with_gui.TextNumber.getText();
-		NameCell[1]=Create_pdf_with_gui.TextGroup.getText();
-		NameCell[2]=Create_pdf_with_gui.TextFIO.getText();
-		NameCell[3]=Create_pdf_with_gui.TextPoints.getText();
-		NameCell[4]="ТЕСТОВЫЙ";
+		String[][] NameCell = new String[2][4];
+		NameCell[0][0]=Create_pdf_with_gui.TextNumber.getText();
+		NameCell[0][1]=Create_pdf_with_gui.TextGroup.getText();
+		NameCell[0][2]=Create_pdf_with_gui.TextFIO.getText();
+		NameCell[0][3]=Create_pdf_with_gui.TextPoints.getText();
+		NameCell[1][0]="Данные1";
+		NameCell[1][1]="Данные2";
+		NameCell[1][2]="Данные3";
+		NameCell[1][3]="Данные3";
 		
-		String[] Hat = new String[5];
-		//можно это задать и по другому
+		String[] Hat = new String[4];
 		Hat[0]="Номер";
 		Hat[1]="Группа";
 		Hat[2]="Фамилия И.О.";
 		Hat[3]="Оценка";
-		Hat[4]="ТЕСТОВЫЙ";
+
 		String Texthat = "Создание PDF файла.";
 		String Textgeneral = "Здесь будет текст который необходимо выводить. Можно добавить достаточного большое количество текста";
 		URL Imagelink=getClass().getResource("/picture/ugatu.png");
@@ -44,11 +46,14 @@ public class ListenerPDF implements ActionListener {
 			e2.printStackTrace();
 		}
 		
-		CreatePDF pdf = new CreatePDF(Hat,NameCell,Namefile,times);
+		CreatePDF pdf = new CreatePDF(Namefile,times);
 		Document document = pdf.getDocument();
 		pdf.addText(document, Texthat, 20,true);
 		pdf.addText(document, Textgeneral, 14,true);
-		pdf.addTable(document);
+		pdf.InitTableAndAddHat(document,Hat);
+		pdf.addRowsInTable(pdf.getTable(), NameCell);
+		pdf.addTable(document,pdf.getTable());
+		
 		pdf.addPicture(Imagelink, document, 90, 300);
 		pdf.getClose();
 		

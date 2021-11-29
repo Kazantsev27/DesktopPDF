@@ -16,5 +16,10 @@ public class exit {
 	}
 	
 	}
+	
+	
+	public void getExit() {
+		System.out.println("1111");
+	}
 }
 	
